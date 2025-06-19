@@ -1,5 +1,5 @@
 <?php
-// Підключення до бази даних
+// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $gmail = $_POST['gmail'];
     $dateOfBirth = $_POST['dateOfBirth'];
     $login = $_POST['login'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Захист пароля
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    // Завантаження аватару
+    // Handle avatar upload
     if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
         $avatar = file_get_contents($_FILES['avatar']['tmp_name']);
     } else {
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         echo "Registration successful!";
-        header("Location: index.php"); // Перенаправлення на головну сторінку після успішної реєстрації
+        header("Location: index.php");
         exit();
     } else {
         echo "Error: " . $stmt->error;
@@ -51,77 +51,77 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Відеоігровий магазин</title>
+    <title>GameShop - Create Account</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <style>
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .registration-form {
-    background-color: #2b2b2b; /* Колір фону форми, схожий на Steam */
-    padding-right: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 48px;
+    border-radius: 24px;
     text-align: center;
-    width: 40%;
-    height: 77.5%;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-.links {
-    margin-top: 20px;
-    text-align: right; /* Вирівнюємо посилання до правого краю */
+.registration-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    pointer-events: none;
 }
 
-.links a {
-    color: #0077ff; /* Колір посилань, схожий на Steam */
-    text-decoration: none;
-    margin: 2% 1%;
-    display: block; /* Робимо посилання блочними, щоб вони були в окремих рядках */
-}
-
-.links a:hover {
-    text-decoration: underline;
+.registration-form > * {
+    position: relative;
+    z-index: 1;
 }
 
 .registration-form h2 {
-    font-size: 32px; /* Розмір тексту */
-    text-align: center; /* Вирівнювання по центру */
-    background-image: linear-gradient(to right, #ff00ff, #0084ff); /* Початковий градієнт */
-    color: transparent; /* Зробити текст прозорим */
-    background-clip: text; /* Застосувати градієнт до тексту */
-    -webkit-background-clip: text; /* Для вебкіт браузерів */
-    margin-top: 2%; /* Додано для відступу */
-    margin-bottom: 2%;
-    animation: gradientAnimation 1s linear infinite; /* Анімація градієнту */
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%; /* Початкова позиція градієнту */
-    }
-    100% {
-        background-position: 100% 50%; /* Кінцева позиція градієнту */
-    }
-}
-
-@-webkit-keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%; /* Початкова позиція градієнту */
-    }
-    100% {
-        background-position: 100% 50%; /* Кінцева позиція градієнту */
-    }
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 16px 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 .registration-form h3 {
+    margin: 0 0 32px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
     margin-bottom: 20px;
+}
+
+.form-grid.single {
+    grid-template-columns: 1fr;
 }
 
 .registration-form input[type="text"],
@@ -130,54 +130,214 @@ $conn->close();
 .registration-form input[type="date"],
 .registration-form input[type="file"] {
     width: 100%;
-    padding-left: 1.5%;
-    padding-bottom: 1.5%;
-    padding-top: 1.5%;
-    margin-bottom: 1.5%;
-    border: none;
-    background-color: #3b3b3b; /* Колір поля вводу, схожий на Steam */
-    color: #fff; /* Колір тексту у полях вводу */
-    border-radius: 5px;
+    padding: 18px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.registration-form input[type="file"] {
+    padding: 16px 20px;
+    cursor: pointer;
+}
+
+.registration-form input[type="text"]:focus,
+.registration-form input[type="password"]:focus,
+.registration-form input[type="email"]:focus,
+.registration-form input[type="date"]:focus,
+.registration-form input[type="file"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.registration-form input[type="text"]::placeholder,
+.registration-form input[type="password"]::placeholder,
+.registration-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .registration-form input[type="submit"] {
     width: 100%;
-    padding: 10px;
-    margin-top: 1%;
-    margin-left: 1%;
+    padding: 18px 24px;
+    margin-top: 16px;
     border: none;
-    background-color: #0077ff; /* Колір кнопки, схожий на Steam */
-    color: #fff; /* Колір тексту на кнопці */
-    border-radius: 5px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-radius: 16px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    box-sizing: border-box;
 }
 
 .registration-form input[type="submit"]:hover {
-    background-color: #0055cc; /* Колір кнопки при наведенні, схожий на Steam */
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.links {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.links a {
+    color: #667eea;
+    text-decoration: none;
+    margin: 8px 0;
+    display: block;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.links a:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+    color: #ffffff;
+}
+
+/* File input styling */
+.registration-form input[type="file"]::file-selector-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-right: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.registration-form input[type="file"]::file-selector-button:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .registration-form {
+        padding: 32px 24px;
+        max-width: 100%;
+    }
+    
+    .registration-form h2 {
+        font-size: 32px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .registration-form input[type="text"],
+    .registration-form input[type="password"],
+    .registration-form input[type="email"],
+    .registration-form input[type="date"],
+    .registration-form input[type="file"],
+    .registration-form input[type="submit"] {
+        padding: 16px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Animation for form elements */
+.registration-form {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.registration-form input {
+    animation: slideInRight 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.registration-form input:nth-child(1) { animation-delay: 0.1s; }
+.registration-form input:nth-child(2) { animation-delay: 0.15s; }
+.registration-form input:nth-child(3) { animation-delay: 0.2s; }
+.registration-form input:nth-child(4) { animation-delay: 0.25s; }
+.registration-form input:nth-child(5) { animation-delay: 0.3s; }
+.registration-form input:nth-child(6) { animation-delay: 0.35s; }
+.registration-form input:nth-child(7) { animation-delay: 0.4s; }
+.registration-form input:nth-child(8) { animation-delay: 0.45s; }
+.registration-form input:nth-child(9) { animation-delay: 0.5s; }
+.registration-form input:nth-child(10) { animation-delay: 0.55s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 </style>
 <body>
     <div class="container">
         <div class="registration-form">
-            <h2>Вітаємо в gameShop</h2>
-            <h3>Створити акаунт</h3>
+            <h2>GameShop</h2>
+            <h3>Create Your Account</h3>
             <form id="registrationForm" method="post" action="registration.php" enctype="multipart/form-data">
-                <input type="text" name="firstName" placeholder="Ім'я" required>
-                <input type="text" name="secondName" placeholder="Прізвище" required>
-                <input type="text" name="nickname" placeholder="Нікнейм" required>
-                <input type="text" name="country" placeholder="Країна" required>
-                <input type="file" name="avatar" accept="image/*" required>
-                <input type="text" name="phone" placeholder="Телефон" required>
-                <input type="email" name="gmail" placeholder="Електронна пошта" required>
-                <input type="date" name="dateOfBirth" required>
-                <input type="text" name="login" placeholder="Логін" required>
-                <input type="password" name="password" placeholder="Пароль" required>
-                <input type="submit" value="Зареєструватися">
+                <div class="form-grid">
+                    <input type="text" name="firstName" placeholder="First Name" required>
+                    <input type="text" name="secondName" placeholder="Last Name" required>
+                </div>
+                <div class="form-grid">
+                    <input type="text" name="nickname" placeholder="Nickname" required>
+                    <input type="text" name="country" placeholder="Country" required>
+                </div>
+                <div class="form-grid single">
+                    <input type="file" name="avatar" accept="image/*" required>
+                </div>
+                <div class="form-grid">
+                    <input type="text" name="phone" placeholder="Phone Number" required>
+                    <input type="email" name="gmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-grid single">
+                    <input type="date" name="dateOfBirth" required>
+                </div>
+                <div class="form-grid">
+                    <input type="text" name="login" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <input type="submit" value="Create Account">
             </form>
             <div class="links">
-                <!--<a href="#">Забули пароль? Відновіть!</a>-->
-                <a href="index.php">Уже зареєстровані? Увійдіть!</a>
-                <!--<a href="shop.php">Продовжити як гість</a>-->
+                <a href="index.php">Already have an account? Sign in!</a>
             </div>
         </div>
     </div>

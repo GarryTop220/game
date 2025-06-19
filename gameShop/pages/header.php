@@ -1,110 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <style>
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #171a21;
-    padding: 10px 20px;
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 .header-left .nav-link {
-    margin-right: 20px;
     text-decoration: none;
-    color: #c7d5e0;
-    transition: color 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
     position: relative;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-left .nav-link:hover {
     color: #ffffff;
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+}
+
+.header-left .dropdown {
+    position: relative;
 }
 
 .header-left .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #171a21;
-    border-radius: 10px;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    top: 100%;
+    left: 0;
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    min-width: 200px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 1001;
+    padding: 8px;
+    margin-top: 8px;
 }
 
 .header-left .dropdown-content a {
-    color: #c7d5e0;
+    color: rgba(255, 255, 255, 0.8);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .header-left .dropdown-content a:hover {
     color: #ffffff;
+    background: rgba(102, 126, 234, 0.2);
+    transform: translateX(4px);
 }
 
 .header-left .dropdown:hover .dropdown-content {
     display: block;
+    animation: fadeInUp 0.3s ease-out;
 }
 
 .header-left .dropdown:hover .nav-link {
     color: #ffffff;
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
 }
 
 .header-right {
     display: flex;
     align-items: center;
+    gap: 24px;
 }
 
 .icon-link {
-    margin-right: 20px;
-    color: #c7d5e0;
-    transition: color 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    font-size: 20px;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .icon-link:hover {
-    color: #ffffff;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
 }
 
 .user-info {
     position: relative;
     display: flex;
-    background-color: #3a4553;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     align-items: center;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 12px 20px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .user-info:hover {
-    background-color: #171a21;
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
 }
 
 .user-info .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 5px;
-    border: 2px solid #c7d5e0;
-    margin-right: 10px;
-    transition: border-color 0.3s;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    object-fit: cover;
 }
 
 .user-info:hover .avatar {
-    border-color: #ffffff;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
 }
 
 .user-info .username {
-    color: #c7d5e0;
-    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .user-info .balance {
-    color: #c7d5e0;
-    margin-right: 10px;
+    color: #667eea;
+    font-weight: 700;
+    font-size: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .dropdown-menu {
@@ -112,30 +176,89 @@ header {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #171a21;
-    border: 1px solid #c7d5e0;
-    padding: 10px;
-    border-radius: 5px;
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    min-width: 200px;
+    margin-top: 8px;
+    z-index: 1001;
 }
 
 .dropdown-menu a {
     display: block;
     text-decoration: none;
-    color: #c7d5e0;
-    margin-bottom: 10px;
-    transition: color 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-bottom: 4px;
 }
 
 .dropdown-menu a:hover {
     color: #ffffff;
+    background: rgba(102, 126, 234, 0.2);
+    transform: translateX(4px);
 }
 
 .dropdown-menu a:last-child {
     margin-bottom: 0;
+    color: #ff6b6b;
+}
+
+.dropdown-menu a:last-child:hover {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff8a8a;
 }
 
 .nav-item:hover .dropdown-menu {
     display: block;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    
+    .header-left {
+        gap: 16px;
+    }
+    
+    .header-left .nav-link {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .user-info {
+        padding: 8px 12px;
+    }
+    
+    .user-info .avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .user-info .username,
+    .user-info .balance {
+        font-size: 14px;
+    }
 }
 </style>
 <script>
@@ -143,40 +266,40 @@ header {
         const userInfo = document.getElementById('user-info');
         const dropdownMenu = document.querySelector('.dropdown-menu');
 
-        userInfo.addEventListener('click', function(e) {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-            if (dropdownMenu.classList.contains('show')) {
-                dropdownMenu.style.display = 'block';
-            } else {
-                dropdownMenu.style.display = 'none';
-            }
-        });
+        if (userInfo && dropdownMenu) {
+            userInfo.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+                if (dropdownMenu.classList.contains('show')) {
+                    dropdownMenu.style.display = 'block';
+                    dropdownMenu.style.animation = 'fadeInUp 0.3s ease-out';
+                } else {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
 
-        window.addEventListener('click', function(e) {
-            if (!userInfo.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                dropdownMenu.classList.remove('show');
-                dropdownMenu.style.display = 'none';
-            }
-        });
+            window.addEventListener('click', function(e) {
+                if (!userInfo.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        }
     });
 </script>
 <body>
     <?php
-    $host = "localhost"; // Адреса сервера бази даних
-    $username = "root"; // Ім'я користувача бази даних
-    $password = ""; // Пароль користувача бази даних
-    $database = "gameShop"; // Назва бази даних
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "gameShop";
 
-    // Підключення до бази даних
     $conn = new mysqli($host, $username, $password, $database);
 
-    // Перевірка з'єднання
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Отримання інформації про користувача з бази даних
     if (isset($_SESSION['user_id'])) {
         $userId = $_SESSION['user_id'];
         $sql = "SELECT * FROM profile WHERE id = ?";
@@ -189,7 +312,6 @@ header {
             $row = $result->fetch_assoc();
             $avatarData = $row['avatar'];
 
-            // Збереження інформації про користувача в сесії
             $_SESSION['firstName'] = $row['firstName'];
             $_SESSION['secondName'] = $row['secondName'];
             $_SESSION['nickname'] = $row['nickname'];
