@@ -1,0 +1,251 @@
+/* game_details.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+.game-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+.main-image {
+    max-width: 300px;
+    margin-right: 20px;
+}
+.main-image img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.info {
+    flex: 1;
+}
+.details {
+    padding: 20px;
+    max-width: 720px;
+    min-width: 720px;
+    border-radius: 10px;
+    background-color: #333;
+}
+.details h1 {
+    font-size: 36px;
+}
+.details p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+.tags-genre p {
+    display: inline-block;
+    background-color: #444;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.additional-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.additional-info a {
+    text-decoration: none;
+    color: white;
+}
+.reviews {
+    display: flex;
+    align-items: center;
+}
+.reviews img {
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+}
+.buy-button {
+    background-color: #0077ff;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.buy-button:hover {
+    background-color: #0055cc;
+}
+.screenshots {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 960px;
+    min-width: 720px;
+}
+.picked-screen img {
+    width: 100%;
+    border-radius: 10px;
+}
+.screenshot-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.screenshot-container img,
+.screenshot-container iframe {
+    width: 19%;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.main-game {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 20px;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.main-game a {
+    text-decoration: none;
+    color: white;
+}
+.system-requirements {
+    background-color: #444;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    padding: 20px;
+    border-radius: 10px;
+}
+.system-requirements table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.system-requirements table td {
+    padding: 10px;
+    border: 1px solid #555;
+}
+.languages-reviews {
+    margin-left: 2.5%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.languages,
+.reviews-section {
+    background-color: #444;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 48%;
+}
+.languages {
+    margin-left: 2.5%;
+}
+.reviews-section {
+    margin-right: 2.5%;
+}
+.languages table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.languages table th,
+.languages table td {
+    padding: 10px;
+    border: 1px solid #555;
+    text-align: center;
+}
+.reviews-section form {
+    display: flex;
+    flex-direction: column;
+}
+.reviews-section form label {
+    margin-top: 10px;
+}
+.reviews-section form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.reviews-section form button {
+    background-color: #0077ff;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.reviews-section form button:hover {
+    background-color: #0055cc;
+}
+
+.add-review {
+    margin-bottom: 20px;
+}
+
+.add-review form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-review form div {
+    margin-bottom: 10px;
+}
+
+.add-review form label {
+    font-weight: bold;
+}
+
+.add-review form textarea, .add-review form select, .add-review form button {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.review {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+}
+
+.review-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.display-reviews .review {
+    background: #fff;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.display-reviews .review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.display-reviews .review-header img.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.display-reviews {
+    padding-left: 20%;
+    padding-right: 20%;
+}

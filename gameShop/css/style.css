@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200&display=swap');
+
+body {
+    font-family: Latto;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    background: rgb(72,58,180);
+    background: radial-gradient(circle, rgba(72,58,180,1) 10%, rgba(141,29,253,0.9444152661064426) 20%, rgba(217,65,250,1) 30%, rgba(252,69,214,1) 40%, rgba(252,69,165,1) 50%, rgba(252,69,214,1) 60%, rgba(217,65,250,1) 70%, rgba(141,29,253,1) 80%, rgba(72,58,180,1) 90%);
+    color: #fff;
+    position: relative;
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}

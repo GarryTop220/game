@@ -1,0 +1,17 @@
+.purchase {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+.purchase h1 {
+    font-size: 36px;
+}
+.purchase a {
+    color: #FF5722;
+    text-decoration: none;
+    font-size: 18px;
+}
+.purchase a:hover {
+    text-decoration: underline;
+}

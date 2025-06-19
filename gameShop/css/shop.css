@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    background: rgb(72,58,180);
+    background: radial-gradient(circle, rgba(72,58,180,1) 10%, rgba(141,29,253,0.9444152661064426) 20%, rgba(217,65,250,1) 30%, rgba(252,69,214,1) 40%, rgba(252,69,165,1) 50%, rgba(252,69,214,1) 60%, rgba(217,65,250,1) 70%, rgba(141,29,253,1) 80%, rgba(72,58,180,1) 90%);
+    color: #fff;
+}
+
+.store {
+    max-width: 75%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.main-content {
+    max-width: 75%;
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-container {
+    margin-bottom: 20px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-main {
+    flex: 2;
+    position: relative;
+}
+
+.main-image {
+    width: 20%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.carousel-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.carousel-info .price, .carousel-info .platforms {
+    margin: 5px 0;
+}
+
+.carousel-thumbnails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.carousel-thumbnails img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.carousel-thumbnails img:last-child {
+    margin-bottom: 0;
+}
+
+.carousel-thumbnails img:hover {
+    opacity: 0.7;
+}
+
+ .filters, .trailers {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.genres h2, .filters h2, .trailers h2 {
+    margin-top: 0;
+}
+
+.genre-list, .filter-list, .trailer-list, .filter-options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-list a, .trailer-list a, .filter-options a {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #555;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.filter-list a:hover, .trailer-list a:hover, .filter-options a:hover {
+    background-color: #888;
+}
+
+.nobg {
+    background-color: #555;
+}
+
+.search input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.filter-options h3 {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.genres {
+    text-align: center;
+}
+
+.genre-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.genre-list a {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.genre-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.genre img {
+    max-width: 100%;
+}
+
+.genre-image img {
+    max-width: 25%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.genre-label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.genre-item:hover .genre-image {
+    transform: scale(1.1);
+}
+
+.main-block {
+    margin-right: 5%;
+    margin-left: 5%;
+    background-color: #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.main-photo {
+    padding-left: 2.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    flex: 1;
+}
+
+.main-photo img {
+    border-radius: 10px;
+    width: 75%; /* Збільшуємо основну фотографію на весь доступний розмір */
+    transition: transform 0.3s ease-in-out;
+}
+
+.main-photo img:hover {
+    transform: scale(1.1);
+}
+
+.thumbnails {
+    margin-top: 1%;
+    margin-right: 5%;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два стовпці */
+    grid-auto-rows: auto; /* Автоматична висота рядків */
+    grid-gap: 25px; /* Відступи між фотографіями */
+}
+
+.thumbnail img {
+    height: 100%;
+    border-radius: 10px;
+    border-color: #333;
+    transition: transform 0.3s ease-in-out;
+    width: 100%; /* Збільшуємо розмір мініатюр до повної ширини */
+}
+
+.thumbnail img:hover {
+    transform: scale(1.1);
+    border-color: #777;
+}
+
+.details {
+    flex: 1;
+}
+
+.price, .platforms {
+    margin-top: 10px; /* Відступи між ціною/платформами та верхньою частиною контейнера */
+}

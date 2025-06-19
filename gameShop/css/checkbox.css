@@ -1,0 +1,17 @@
+/* Checkbox styles */
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + span {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span {
+    background-color: #0077ff;
+}
